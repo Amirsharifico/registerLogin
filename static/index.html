@@ -34,7 +34,11 @@
           }),
         }).then((res)=> res.json())
 
-        console.log(result)
+      if(result.status === 'ok'){
+
+      }else{
+        alert(result.error)
+      }
       }
     </script>
   </body>
