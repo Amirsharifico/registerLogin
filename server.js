@@ -103,6 +103,6 @@ app.post("/api/register", async (req, res) => {
   res.json({ status: "ok" });
 });
 
-app.listen(8080, () => {
-  console.log("Server is up at 8080");
+app.listen(3000, () => {
+  console.log("Server is up at 3000");
 });
