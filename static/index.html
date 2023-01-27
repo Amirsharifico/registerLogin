@@ -9,34 +9,35 @@
   <body>
     <h1>Registration</h1>
     <form id="reg-form">
-      <input type="text" autocomplete="off"  id="username" placeholder="User Name" />
+			<input type="text" autocomplete="off" id="username" placeholder="Username" />
       <input type="password" autocomplete="off" id="password" placeholder="Password" />
       <input type="submit" value="Submit Form" />
     </form>
 
     <script>
-      const form = document.getElementById("reg-form");
-      form.addEventListener("submit", registerUser);
+			const form = document.getElementById('reg-form')
+			form.addEventListener('submit', registerUser)
 
       async function registerUser(event) {
-        event.preventDefault();
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+				event.preventDefault()
+				const username = document.getElementById('username').value
+				const password = document.getElementById('password').value
 
-      const result =  await fetch("/api/register", {
-          method: "POST",
+				const result = await fetch('/api/register', {
+					method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+						'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             username,
-            password,
-          }),
-        }).then((res)=> res.json())
+						password
+					})
+				}).then((res) => res.json())
 
-      if(result.status === 'ok'){
-
-      }else{
+				if (result.status === 'ok') {
+					// everythign went fine
+					alert('Success')
+				} else {
         alert(result.error)
       }
       }
